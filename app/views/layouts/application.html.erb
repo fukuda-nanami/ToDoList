@@ -2,6 +2,12 @@
 <html>
 <head>
   <title>ToDoList</title>
+
+<il><%= link_to "タスク一覧", tasks_path %></il>|
+<il><%= link_to "タスク登録", new_task_path %></il>|
+<il><%= link_to "ユーザー一覧", users_path %></il>|
+<il><%= link_to "カテゴリ一覧", categories_path %></il>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
