@@ -53,8 +53,19 @@ class TasksController < ApplicationController
 
  
    def search
+   @search_user=params['search']['user']
+   @search_category=params['search']['category']
+   @tasks = Task.where("name '(@search_user)'")
+   if @search_user.present?
+     @tasks = @tasks.where(user_id :@search_user)
+   end
+   if @search_category.present?
+     @tasks = @tasks.where(category_id :@search_category)
+   end
+
+
     @name = params["search"]["name"]
-    @books = Book.where("title like'%#{params["search"]["name"]}%'")
+    @tasks = Task.where("name like'%#{params["search"]["name"]}%'")
     render :index
    end
 
